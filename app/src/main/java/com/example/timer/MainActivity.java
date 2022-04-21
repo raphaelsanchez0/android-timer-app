@@ -4,12 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private Integer hours=0;
+    private Integer minutes=0;
+    private Integer seconds=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +39,26 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Converts Text View object values in Integer values
-        Integer hours = Integer.parseInt(view_hours.getText().toString());
-        Integer minutes = Integer.parseInt(view_minutes.getText().toString());
-        Integer seconds = Integer.parseInt(view_seconds.getText().toString());
+        try{
+            hours = Integer.parseInt(view_hours.getText().toString());
+        }catch (Exception e){
+            hours = 0;
+        }
+        try{
+            minutes = Integer.parseInt(view_minutes.getText().toString());
+        }catch (Exception e) {
+            minutes = 0;
+        }
+        try{
+            seconds = Integer.parseInt(view_seconds.getText().toString());
+        }catch(Exception e){
+            seconds = 0;
+        }
+
+
+        //hours = Integer.parseInt(view_hours.getText().toString());
+        //minutes = Integer.parseInt(view_minutes.getText().toString());
+        //seconds = Integer.parseInt(view_seconds.getText().toString());
 
 //        try{
 //            Integer hours = Integer.parseInt(view_hours.getText().toString());
@@ -64,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Creates a bundle for the extras to pass to the new activity
         Bundle hoursMinutesTime = new Bundle();
+
         hoursMinutesTime.putInt("hours",hours);
         hoursMinutesTime.putInt("minutes",minutes);
         hoursMinutesTime.putInt("seconds",seconds);
