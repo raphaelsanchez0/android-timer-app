@@ -61,6 +61,7 @@ public class TimerActivity extends AppCompatActivity {
     public void resumeTimer(View v){
         final TextView time_left_text = (TextView)findViewById(R.id.time_left_view);
         isPaused = false;
+        total ++;
         startResumeCountDownTimer((int)(total),time_left_text);
 
 
