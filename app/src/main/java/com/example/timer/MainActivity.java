@@ -10,6 +10,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    Integer hours;
+    Integer minutes;
+    Integer seconds;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +38,22 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Converts Text View object values in Integer values
-        Integer hours = Integer.parseInt(view_hours.getText().toString());
-        Integer minutes = Integer.parseInt(view_minutes.getText().toString());
-        Integer seconds = Integer.parseInt(view_seconds.getText().toString());
+        try{
+            hours = Integer.parseInt(view_hours.getText().toString());
+        }catch(Exception e){
+            hours = 0;
+        }
+        try{
+            minutes = Integer.parseInt(view_minutes.getText().toString());
+        }catch(Exception e){
+            minutes = 0;
+        }
+        try{
+            seconds = Integer.parseInt(view_seconds.getText().toString());
+        }catch(Exception e){
+            seconds = 0;
+        }
+
 
 //        try{
 //            Integer hours = Integer.parseInt(view_hours.getText().toString());

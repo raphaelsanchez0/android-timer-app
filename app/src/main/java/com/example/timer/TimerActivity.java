@@ -55,11 +55,14 @@ public class TimerActivity extends AppCompatActivity {
     }
     public void pauseTimer(View v){
         isPaused= true;
+        Log.d("msg","Total: "+totalTimePassed);
+
     }
     public void resumeTimer(View v){
         final TextView time_left_text = (TextView)findViewById(R.id.time_left_view);
         isPaused = false;
         startResumeCountDownTimer((int)(total),time_left_text);
+
 
 
     }
@@ -68,7 +71,7 @@ public class TimerActivity extends AppCompatActivity {
         cdTimer = new CountDownTimer((Seconds_Remaining )*1000,1000){
             @Override
             public void onTick(final long millisUntilFinished){
-                 total = millisUntilFinished/1000;
+                 //total = millisUntilFinished/1000;
 
                  secondsUntilFinished = (int) millisUntilFinished/1000;
                  hoursRemaining = secondsUntilFinished/3600;
